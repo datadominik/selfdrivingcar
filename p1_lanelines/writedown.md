@@ -16,9 +16,8 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [image1]: ./examples/grayscale.jpg "Grayscale"
 [image2]: ./examples/transformed.jpg "Transformed images"
-[video1]: white.mp4 "Result video 1"
-[video2]: yellow.mp4 "Result video 2"
-
+[video1]: ./examples/video1.JPG "Result video 1"
+[video2]: ./examples/video2.JPG "Result video 2"
 
 ---
 
@@ -43,10 +42,10 @@ Since the hough transform produces too many lines I now construct one single lin
 Here are some image examples with my lane detection pipeline:
 ![alt text][image2]
 
-Here is video 1 with my lane detection pipeline:
+Here is a screenshot of video 1 with my lane detection pipeline:
 ![alt text][video1]
 
-And here is video 2 with my lane detection pipeline:
+And here is a screenshot of video 2 with my lane detection pipeline:
 ![alt text][video2]
 
 ###2. Identify potential shortcomings with your current pipeline
