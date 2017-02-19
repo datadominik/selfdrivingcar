@@ -12,7 +12,8 @@ The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
 * Reflect on your work in a written report
 
-![image1]: (./examples/grayscale.jpg) "Grayscale"
+
+![image1]: [./examples/grayscale.jpg] "Grayscale"
 
 ---
 
