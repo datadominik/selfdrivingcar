@@ -15,9 +15,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 [image1]: ./examples/grayscale.jpg "Grayscale"
-[image2][./examples/transformed.jpg] "Transformed images"
-[video1][white.mp4] "Result video 1"
-[video2][yellow.mp4] "Result video 2"
+[image2]: ./examples/transformed.jpg "Transformed images"
+[video1]: white.mp4 "Result video 1"
+[video2]: yellow.mp4 "Result video 2"
 
 
 ---
