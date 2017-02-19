@@ -49,15 +49,22 @@ And here is a screenshot of video 2 with my lane detection pipeline:
 ###2. Identify potential shortcomings with your current pipeline
 
 From my point of view there are several shortcomings:
+
 1. **hand-tuned parameters**: for edge detection, hough transform and region cropping I use parameters that have been tuned by hand. Using those with other videos might not work.
+
 2. **linear extrapolation**: linear extrapolation might not always be suitable, especially if we  would also incorporate lane lines further aways
+
 3. **spatial domain only**: I don't incorporate information of the last frames, which might be helpful to further smoothen the results.
 
 
 ###3. Suggest possible improvements to your pipeline
 
 I see lots of potential to improve the pipeline, here are some examples:
+
 1. **Machine Learning for parameter tuning**: if we leave the pipeline like this it would make sense to tune the parameters with training data and furthermore ensure with a validation set that the approach generalizes good enough on new data.
+
 2. **Machine or Deep Learning pipeline**: instead of using traditional computer vision methods it could also make sense to teach a classifier what a lane looks like by just using suitable image training data.
+
 3. **Using other extrapolation methods**: to deal with lane markings further away it could make sense to introduce non-linear regression methods.
-3. **Making use of the time domain**: the position of a lane line is highly dependent on the position of the lane in the frame before. Therefore it could make sense to adjust the new detected lane by averaging over past frames.
+
+4. **Making use of the time domain**: the position of a lane line is highly dependent on the position of the lane in the frame before. Therefore it could make sense to adjust the new detected lane by averaging over past frames.
