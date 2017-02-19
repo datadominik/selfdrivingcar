@@ -12,10 +12,7 @@ The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
 * Reflect on your work in a written report
 
-
-[//]: # (Image References)
-
-![image1]: ./examples/grayscale.jpg "Grayscale"
+[image1]: ./examples/grayscale.jpg "Grayscale"
 
 ---
 
@@ -38,13 +35,13 @@ Our goal was to draw a single line for the left and right lane. To achieve this 
 Since the hough transform produces too many lines I now construct one single line for each lane. Simple linear regression is used to find a function that describes all points of the hough lines with an error as little as possible. Since we always want to start the line at the bottom we use the formula **y = m*x + b** and transform it to **x = (y-b)/m**. Like this we get the needed x-position for each line if you are at the bottom of the image. I also restrict the end of the linear line to a certain y-position, since only parts of the real lane are describable with a linear model due to the viewpoint.
 
 Here are some image examples with my lane detection pipeline:
-![image2][./examples/transformed.jpg]
+[image2][./examples/transformed.jpg]
 
 Here is video 1 with my lane detection pipeline:
-![video1][white.mp4]
+[video1][white.mp4]
 
 And here is video 2 with my lane detection pipeline:
-![video2][yellow.mp4]
+[video2][yellow.mp4]
 
 ###2. Identify potential shortcomings with your current pipeline
 
