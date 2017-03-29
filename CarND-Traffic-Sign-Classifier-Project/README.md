@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 [image2]: ./examples/examples/2_examples.png "image examples"
 [image3]: ./examples/examples/2_preproc.png "preprocessing"
 [image4]: ./examples/examples/3_dist.png "upsampled distribution"
-[image5]: ./examples/examples/4_new.png "new traffic signs"
-[image6]: ./examples/examples/5_new.png "preprocessed new traffic signs"
+[image5]: ./examples/examples/5_new.png "new traffic signs"
+[image6]: ./examples/examples/4_new.png "preprocessed new traffic signs"
 [image7]: ./examples/examples/6_features.png "feature maps"
 
 
