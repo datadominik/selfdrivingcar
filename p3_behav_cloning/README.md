@@ -16,12 +16,12 @@ The goals / steps of this project are the following:
 [image4]: ./dirt.jpg "Dirt augmentation"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Files Submitted & Code Quality
+### Files Submitted & Code Quality
 
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -29,41 +29,41 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network
 * writeup_report.md or writeup_report.pdf summarizing the results
 
-####2. Submission includes functional code
+#### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing
 ```sh
 python drive.py model.h5
 ```
 
-####3. Submission code is usable and readable
+#### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 My model consists is strongly inspired by the architecture of Nvidia shown in the lecture. It's based on several Convolution-ReLu-MaxPooling blocks followed by a couple of Dense layers, which are separated by Dropout layers. The final layer consists of a single neuron predicting the steering angle. The input_shape of the first layer is (80,160,3) which is 50% of the original image size.
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting. You can find them in all but the last Dense layer of the model.
 
 Furthermore the available data was split into a training and validation part (90/10). Beforehand random shuffling was applied. After the model training reached a low validation error the simulator was used as final test.
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 
 The model used adam, so no manual tuning of optimizer parameters was done.
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 The training data only consisted of the available data given by Udacity. I tried to train the model on my own driving data, but in fact I wasn't able to drive smooth enough to be a good role model for a self-driving car algorithm.
 
 For details about how I created the training data, see the next section.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 The strategy for deriving a model architecture consisted of trial and error in the first place.
 
@@ -82,15 +82,17 @@ I created the following methods and applied them with a certain probability to t
 After 4 epochs the car was able to drive some meters without leaving the track. But at some point it always left the road. Looking at the steering angle distribution I realized that we have too much 0 angles and remembered the hint of the teachers: using the left and right images and adding +/- 0.25 to their steering angle to deal with the unbalanced data distribution.
 
 **Data distribution**
+
 ![alt text][image1]
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 **Final drive**
+
 ![alt text][image2]
 
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 My final model architecture looks like the following. I left out Dropout in the final two Dense layers, maybe adding it there could also further improve the performance.
 
 - Convolution2D: 24, 3, 3
@@ -125,15 +127,17 @@ My final model architecture looks like the following. I left out Dropout in the 
 ---------------------------
 - Output
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 Even if I tried creating my own data, I relied on the data given by Udacity in the end.
 
 For augmentation I used the methods mentioned above. Attached are some images, where you can see the augmentation effect of the shadowing and noising. Color changes and horizontal flips were also applied to improve performance. Here are two example images (unfortunately very small)
 
 **Shadowing**
+
 ![alt text][image3]
 
 ```python
+
 def aug_shad(img,y):
     ### adds partial shadows on the camera picture
     ### I've seen similar approaches in several Udacity posts on medium.com
@@ -162,6 +166,7 @@ def aug_shad(img,y):
 ```
 
 **Noising**
+
 ![alt text][image4]
 
 ```python
