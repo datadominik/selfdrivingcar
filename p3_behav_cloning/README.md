@@ -10,10 +10,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./steering.png "Steering angle distribution"
-[image2]: ./video.gif "Final drive"
-[image3]: ./shadow.jpg "Shadow augmentation"
-[image4]: ./dirt.jpg "Dirt augmentation"
+[image1]: ./examples/steering.png "Steering angle distribution"
+[image2]: ./examples/video.gif "Final drive"
+[image3]: ./examples/shadow.jpg "Shadow augmentation"
+[image4]: ./examples/dirt.jpg "Dirt augmentation"
 
 ## Rubric Points
 Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
