@@ -55,7 +55,7 @@ I prepared a tensor of objects points which represents chessboard coners. For ea
 
 The lense distortion in this example seems to be rather low. By looking close at the edges of the checkerboard you can anyway recognize the correction effect.
 
-**distortion correction**
+**--- image: distortion correction**
 
 ![alt text][image1]
 
@@ -63,15 +63,15 @@ The lense distortion in this example seems to be rather low. By looking close at
 
 To create the binary images used for further analysis I created a combination of Sobel and HLS transform as mentioned in the lecture. The code for Sobel transform is located in cell 2 of the jupyter notebook, the HLS code in cell 3. For both Sobel and HLS transform (where I focussed on the saturation channel) thresholds were chosen manually. Afterwards both filtered binary images were transformed through averaging.
 
-**sobel filter**
+**--- image: sobel filter**
 
 ![alt text][image2]
 
-**hls filter**
+**--- image: hls filter**
 
 ![alt text][image3]
 
-**combined filter**
+**--- image: combined filter**
 
 ![alt text][image4]
 
@@ -89,28 +89,28 @@ In the end I used the following source and destination points:
 | 840, 550      | 960, 576      |
 | 1100, 720     | 960, 720      |
 
-**source points**
+**--- image: source points**
 
 ![alt text][image5]
 
 I then visually inspected the perspective transform by applying it to a test image and checking if the transform looks more or less valid.
 
-**perspective transform**
+**--- image: perspective transform**
 ![alt text][image6]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 The code for lane finding is located in cells 7-11. It's heavily inspired by the examples and code of the sliding windows approach shown in the lecture. Though for me it worked better when I recomputed the histogram for every binarized image and used an interpolation between frames instead to ensure that the detection won't shake around too much.
 
-**perspective transform on binary image**
+**--- image: perspective transform on binary image**
 
 ![alt text][image7]
 
-**histogram of first sliding window**
+**--- image: histogram of first sliding window**
 
 ![alt text][image8]
 
-**detected lanes**
+**--- image: detected lanes**
 
 ![alt text][image9]
 
@@ -124,11 +124,11 @@ For detecting the offset to center, I first calculated the midpoint between both
 
 I implemented this step in cell 7-11 as well, since I evaluated the methodology on test images first. Here you see the result on a test image:
 
-**result on example image**
+**--- image: result on example image**
 
 ![alt text][image10]
 
-**result on video frame**
+**--- image: result on video frame**
 
 ![alt text][image11]
 ---
