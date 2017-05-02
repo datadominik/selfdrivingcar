@@ -55,20 +55,24 @@ I prepared a tensor of objects points which represents chessboard coners. For ea
 
 The lense distortion in this example seems to be rather low. By looking close at the edges of the checkerboard you can anyway recognize the correction effect.
 
-*distortion correction*
+**distortion correction**
+
 ![alt text][image1]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 To create the binary images used for further analysis I created a combination of Sobel and HLS transform as mentioned in the lecture. The code for Sobel transform is located in cell 2 of the jupyter notebook, the HLS code in cell 3. For both Sobel and HLS transform (where I focussed on the saturation channel) thresholds were chosen manually. Afterwards both filtered binary images were transformed through averaging.
 
-*sobel filter*
+**sobel filter**
+
 ![alt text][image2]
 
-*hls filter*
+**hls filter**
+
 ![alt text][image3]
 
-*combined filter*
+**combined filter**
+
 ![alt text][image4]
 
 
@@ -85,25 +89,29 @@ In the end I used the following source and destination points:
 | 840, 550      | 960, 576      |
 | 1100, 720     | 960, 720      |
 
-*source points*
+**source points**
+
 ![alt text][image5]
 
 I then visually inspected the perspective transform by applying it to a test image and checking if the transform looks more or less valid.
 
-*perspective transform*
+**perspective transform**
 ![alt text][image6]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 The code for lane finding is located in cells 7-11. It's heavily inspired by the examples and code of the sliding windows approach shown in the lecture. Though for me it worked better when I recomputed the histogram for every binarized image and used an interpolation between frames instead to ensure that the detection won't shake around too much.
 
-*perspective transform on binary image*
+**perspective transform on binary image**
+
 ![alt text][image7]
 
-*histogram of first sliding window*
+**histogram of first sliding window**
+
 ![alt text][image8]
 
-*detected lanes*
+**detected lanes**
+
 ![alt text][image9]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
@@ -116,10 +124,12 @@ For detecting the offset to center, I first calculated the midpoint between both
 
 I implemented this step in cell 7-11 as well, since I evaluated the methodology on test images first. Here you see the result on a test image:
 
-*result on example image*
+**result on example image**
+
 ![alt text][image10]
 
-*result on video frame*
+**result on video frame**
+
 ![alt text][image11]
 ---
 
@@ -137,4 +147,4 @@ Here's a [link to my video result](./project_video.mp4)
 
 Of course, one of the main problems here are all the manually tuned parameters. In fact, we're implicitly overfitting on the test videos, since the tuning is aimed at performing the detection on them. If we need to deal with previously unseen scenarios like different lightning conditions or not so clear lane colors, the algorithm is likely to fail.
 
-To make the methods more robust I would suggest going away from the manual parameter tuning towards a more Machine Learning based approach. By using hand-labeled images as a target, the tuning could be automated and performed with a much larger amount of images in different lane scenarios. We could also step away from the traditional computer vision approaches and try out Neural Networks like U-Net to perform image segmentation based on previously hand-labeled images. 
+To make the methods more robust I would suggest going away from the manual parameter tuning towards a more Machine Learning based approach. By using hand-labeled images as a target, the tuning could be automated and performed with a much larger amount of images in different lane scenarios. We could also step away from the traditional computer vision approaches and try out Neural Networks like U-Net to perform image segmentation based on previously hand-labeled images.
