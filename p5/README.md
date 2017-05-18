@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [image8]: ./examples/detection_1.png
 [image9]: ./examples/detection_2.png
 [image10]: ./examples/detection_3.png
-[video1]: ./project_video.mp4
+[video1]: ./final_submission.mp4
 
 ---
 ### Writeup / README
@@ -92,14 +92,14 @@ The heatmap was directly created during prediction.  I then used `scipy.ndimage.
 
 Here are three heatmaps and their corresponing bounding boxes:
 
-![alt text][image5]
 ![alt text][image8]
+![alt text][image5]
 
-![alt text][image6]
 ![alt text][image9]
+![alt text][image6]
 
-![alt text][image7]
 ![alt text][image10]
+![alt text][image7]
 
 ---
 
