@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 
 You're reading it!
 
-### Histogram of Oriented Gradients (HOG)
+### Deep Learning vehicle detection
 
 #### 1. Explain how (and identify where in your code) you created training data for your approach.
 
@@ -62,7 +62,7 @@ def iou_loss(y_true, y_pred):
 
 The model architecture itself is based on https://github.com/jocicmarko/ultrasound-nerve-segmentation and consists of an encoder-decoder structure, where the Upsamling layers of the decoder are concatenated with the Convolution-layers of the encoder. For optimization I used Adam with a learning rate of 1e-4.
 
-### Sliding Window Search
+### Heatmap creation
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
