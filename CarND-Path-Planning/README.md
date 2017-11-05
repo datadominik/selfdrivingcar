@@ -88,14 +88,12 @@ else if ((too_close)&&(ref_vel>target_speed)){
 } else if (lane != 1 && ref_vel >= 49.4) { // go back to middle lane, whenever possible
     if (lane == 2 && safe_left){
         lane = 1;
-        allow_strong_acc = true;
     } else if (lane == 0 && safe_right){
         lane = 1;
-        allow_strong_acc = true;
     }
 } else if (ref_vel < 49.5){
     if (allow_strong_acc){ // accelerate, if trying to keep lane or change lanes
-        ref_vel += .424;
+        ref_vel += .244;
     } else {
         ref_vel += .224; // during "prepare lane change"
     }
