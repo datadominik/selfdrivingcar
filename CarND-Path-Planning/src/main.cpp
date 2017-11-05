@@ -272,6 +272,7 @@ int main() {
 
             bool safe_right = true;
             bool safe_left = true;
+            bool main_free = true;
 
             int pref; // prefer left = 0, prefer right = 1
 
@@ -311,6 +312,10 @@ int main() {
                     }
                 }
 
+                if (((check_car_s > car_s) && (((check_car_s - car_s) > max_dist_front*3)==false))){
+                    main_free = false; // risk to high, that a car in distance max_dist_front*3 takes or will take lane 1
+                }
+
                 // if both lanes are potentially save to go to, prefer the one with potential for higher speed
                 if (safe_right && safe_left){
                     if(car_lane == lane - 1 )   {
@@ -328,7 +333,7 @@ int main() {
                 // if car is in front of us, set too_close to true (prepare for lane change)
                 if(d < (2+4*lane+2) && d > (2+4*lane-2)){
                     if((check_car_s > car_s) && ((check_car_s-car_s) < max_dist_front)){
-                        target_speed = check_speed;
+                        target_speed = check_speed * 2.24;
                         too_close = true;
                         allow_strong_acc = false;
                     }
@@ -354,7 +359,7 @@ int main() {
                 lane += 1;
                 allow_strong_acc = true;
             }
-            else if ((too_close)&&(ref_vel>target_speed)){
+            else if ((too_close)){
 
                 if(ref_vel - .224 >= target_speed){ // slow down, if lane change is not possible and car in front of ego to slow
                     ref_vel -= .224;
@@ -362,27 +367,17 @@ int main() {
                     ref_vel = target_speed;
                 }
 
-                if (lane == 0 and safe_right){ // try to go back to middle lane
-                    lane = 1;
-                    allow_strong_acc = true;
-                } else if (lane == 2 and safe_left){ // try to go back to middle lane
-                    lane = 1;
-                    allow_strong_acc = true;
-                }
-
             } else if((too_close)&&(ref_vel<=target_speed)){
                 ref_vel = target_speed;
             } else if (lane != 1 && ref_vel >= 49.4) { // go back to middle lane, whenever possible
-                if (lane == 2 && safe_left){
+                if (lane == 2 && safe_left && main_free){
                     lane = 1;
-                    allow_strong_acc = true;
-                } else if (lane == 0 && safe_right){
+                } else if (lane == 0 && safe_right && main_free){
                     lane = 1;
-                    allow_strong_acc = true;
                 }
             } else if (ref_vel < 49.5){
                 if (allow_strong_acc){ // accelerate, if trying to keep lane or change lanes
-                    ref_vel += .424;
+                    ref_vel += .244;
                 } else {
                     ref_vel += .224; // during "prepare lane change"
                 }
