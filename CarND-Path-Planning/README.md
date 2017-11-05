@@ -6,6 +6,7 @@ Term 3: Path Planning Project
 The basis of my project code depends on the code shown in the project walkthrough. Therefore I use the spline library to get a smooth prediction of my current and future path. I enhanced the boilerplate code by implementing a lane change logic, that aims at driving both safe and efficient in the simulator. In general I could achieve a more or less smooth ride with my attempt but there are still some situations, where the ego car behaves unnaturaly. Especially when lane changes are not possible but would be necessary, the vehicle changes between slowing down and accelerating too aggressively.
 
 A video of one of the final drives can be found here:
+
 [![Alt text](https://img.youtube.com/vi/Q8ZLq4Zh4tY/0.jpg)](https://www.youtube.com/watch?v=Q8ZLq4Zh4tY)
 
 ### Lane change logic
